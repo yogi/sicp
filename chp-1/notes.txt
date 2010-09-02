@@ -1,0 +1,44 @@
+Languages typically offer:
+* primitive expressions
+* means of combining
+* means of abstraction: naming and manipulating compound things
+
+variable: name that refers to a value
+environment: memory that holds name-value associations
+
+Substitution model of procedure application
+Applicative-order evaluation: evaluate arguments and then apply
+Normal-order evaluation: expand-fully then reduce
+bound variable: one which can be renamed across all usages without changing the meaning of the procedure definition  
+  procedures bind their formal parameters
+free variable: one which is not bound
+scope of variable: set of expressions for which a binding defines a name
+
+block-structure: mechanism to reduce name conflicts by having nested-definitions with local-names
+
+lexical scoping: free variables get the value from the environment in which the procedure was defined (not invoked) 
+
+
+recursive procedure: procedure that calls itself
+
+recursive process: builds up deferred work as it goes along
+  requires an interpreter with a stack
+  
+iterative process: carries along all the state required for the computation 
+  can be computed solely with registers
+a recursive procedure can generate recursive or iterative processes
+  tail recursion in scheme
+
+linear recursive process
+linear iterative process
+
+golden ratio: n^2 = n + 1 =~ 1.6180
+
+functions:
+  linear - output difference is constant
+  exponential - output ratio is constant
+  
+equations:
+  polynomial - sum of terms of different degrees
+  quadratic - second degree polynomial in one variable
+  
