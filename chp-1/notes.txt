@@ -1,3 +1,7 @@
+
+Chapter 1
+---------
+
 Languages typically offer:
 * primitive expressions
 * means of combining
@@ -41,4 +45,35 @@ functions:
 equations:
   polynomial - sum of terms of different degrees
   quadratic - second degree polynomial in one variable
+
   
+Chapter 2
+---------
+Data abstraction: separating an abstract data type from concrete representation. The abstract data is is defined in terms of procedures that can create (constructors) and query (selectors) the data (note: there's no manipulation of data, is it all immutable?).
+
+What is data? You could look at it as a set of procedures and conditions that hold amongst them e.g. cons, car, cdr can be implemented as procedures:
+(define (cons x y)
+  (lambda (m) (m x y)))
+
+(define (car z)
+  (z (lambda(p q) p)))
+
+(define (cdr z)
+  (z (lambda(p q) q)))
+
+
+Closure property o cons: An operation for combining objects satisfies the closure property when the result of the operation can be combined using the same operation. "Closure" is derived from abstract algebra where a set of elements is said to be "closed" under an operation when the result of applying the operation to members of the set is part of the set.
+
+This is powerful because it allows creation of hierarchical data objects. 
+
+Similar in some ways to Composite design pattern, and the use of JMock fluent interfaces (Builder pattern?). 
+
+List: is a sequence of pairs formed by nested conses
+
+Alan Perlis: "In Pascal the plethora of declarable data structures induces a specialization within functions that inhibits and penalizes casual cooperation. It's better to have 100 functions operate on 1 data structure than 10 functions operating on 10 data structures."
+
+Reminds me of the power of pipes and filters on unix and the file abstraction (data structure?).
+
+It's surprising, even amazing, that Lisp's pairs and cons' closure property are the crux of powerful data structures like lists.
+
+
