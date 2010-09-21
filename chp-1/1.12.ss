@@ -1,4 +1,4 @@
-
+ 
 (define (cell col row)
   (if (= row 1) 
       (if (= col 1) 1 0)
