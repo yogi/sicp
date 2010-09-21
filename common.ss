@@ -1,5 +1,7 @@
+(define nil '())
+
 (define (assert-equals expected actual)
-  (if (= expected actual)
+  (if (equal? expected actual)
       #t
       (let ()
         (display "expected: ")
