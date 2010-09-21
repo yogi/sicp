@@ -35,8 +35,6 @@
                   (enumerate-interval 1 n)))
            (enumerate-interval 1 n)))
 
-;(unique-triples 5)
-
 (define (sum-equal n)
   (lambda (triple)
     (= n (sum triple))))
