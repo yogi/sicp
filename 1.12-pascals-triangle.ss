@@ -24,5 +24,4 @@
 (define (pascal n)
   (rows 1 n))
 
-(pascal 20)
-(newline)
+(pascal 5)

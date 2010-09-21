@@ -1,3 +1,5 @@
+(load "common.ss")
+
 (define (sum a term b next)
   (define (iter a result)
     (if (> a b)
@@ -8,4 +10,4 @@
 (define (identity x) x)
 (define (inc x) (+ x 1))
 
-(sum 1 identity 10 inc)
+(assert-equals 55 (sum 1 identity 10 inc))

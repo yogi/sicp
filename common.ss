@@ -1,0 +1,10 @@
+(define (assert-equals expected actual)
+  (if (= expected actual)
+      #t
+      (let ()
+        (display "expected: ")
+        (display expected)
+        (newline)
+        (display "     got: " )
+        (display actual)
+        (newline))))
