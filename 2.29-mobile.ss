@@ -1,4 +1,4 @@
-; mobile
+
 
 (define (make-mobile left right)
   (cons left right))
