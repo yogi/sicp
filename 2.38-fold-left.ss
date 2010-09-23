@@ -1,3 +1,4 @@
+(load "common.ss")
 
 (define (fold-right op initial seq)
   (if (null? seq)
@@ -13,10 +14,10 @@
               (cdr rest))))
   (iter initial seq))
 
-(fold-right / 1 '(1 2 3))
-(fold-left / 1 '(1 2 3))
+(assert-equals (/ 3 2) (fold-right / 1 '(1 2 3)))
+(assert-equals (/ 1 6) (fold-left / 1 '(1 2 3)))
 
-(fold-right list '() '(1 2 3))
-(fold-left list '() '(1 2 3))
+(assert-equals '(1 (2 (3 ()))) (fold-right list '() '(1 2 3)))
+(assert-equals '(((() 1) 2) 3) (fold-left list '() '(1 2 3)))
 
 ; operations have to be commutative, i.e. reordering the operands does not change the result, for the result of fold-left and fold-right to be the same for any sequence.

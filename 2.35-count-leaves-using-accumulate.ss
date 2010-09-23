@@ -1,11 +1,11 @@
+(load "common.ss")
+
 ; simple implementation without using map
 (define (accumulate op initial seq)
   (if (null? seq)
       initial
       (op (car seq)
           (accumulate op initial (cdr seq)))))
-
-(accumulate + 0 '(1 2 3 4 5 6))
 
 (define (count-leaves tree)
   (accumulate (lambda (x y)
@@ -15,9 +15,9 @@
               0
               tree))
 
-(count-leaves '(1))
-(count-leaves '(1 2))
-(count-leaves '(1 (2 (3) (4 5) (6) (7 (8 (9 (0)))))))
+(assert-equals 1 (count-leaves '(1)))
+(assert-equals 2 (count-leaves '(1 2)))
+(assert-equals 10 (count-leaves '(1 (2 (3) (4 5) (6) (7 (8 (9 (0))))))))
 
 ; using map
 (define (count-leaves tree)
@@ -29,5 +29,5 @@
                          1))                         
                    tree)))
 
-(count-leaves '(1 (2 (3) (4 5) (6) (7 (8 (9 (0)))))))
+(assert-equals 10 (count-leaves '(1 (2 (3) (4 5) (6) (7 (8 (9 (0))))))))
 

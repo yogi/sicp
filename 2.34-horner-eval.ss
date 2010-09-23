@@ -1,3 +1,5 @@
+(load "common.ss")
+
 (define (accumulate op initial seq)
   (if (null? seq)
       initial
@@ -11,5 +13,5 @@
               0
               coefficients))
 
-(horner-eval 2 '(1))
-(horner-eval 2 '(1 3))
+(assert-equals 1 (horner-eval 2 '(1)))
+(assert-equals 7 (horner-eval 2 '(1 3)))

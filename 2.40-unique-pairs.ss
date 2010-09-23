@@ -1,3 +1,5 @@
+(load "common.ss")
+
 (define (enumerate-interval start end)
   (if (> start end)
       '()
@@ -29,7 +31,7 @@
         ((= (car seq) n) #t)
         (else (member? n (cdr seq)))))
 
-; hack it 
+; :-P
 (define (prime? n)
   (member? n '(2 3 5 7 11 13 17 19 23 29 31)))
 

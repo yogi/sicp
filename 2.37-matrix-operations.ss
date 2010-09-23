@@ -1,3 +1,5 @@
+(load "common.ss")
+
 (define (accumulate op init seq)
   (if (null? seq)
       init
@@ -12,27 +14,31 @@
 
 (define m '((1 2 3 4) (4 5 6 6) (6 7 8 9)))
 
+; dot-product
 (define (dot-product v w)
   (accumulate + 0 (map * v w)))
 
 (define v '(1 2 3 4))
 (define w '(4 5 6 7))
 
-(dot-product v w)
+(assert-equals 60 (dot-product v w))
 
+; matrix-*-vector
 (define (matrix-*-vector m v)
   (map (lambda (w) (dot-product w v)) 
        m))
 
-(matrix-*-vector m v)
+(assert-equals '(30 56 80) (matrix-*-vector m v))
 
+; transpose
 (define (transpose m)
   (accumulate-n (lambda (x y)
                   (cons x y))
                 '()
                 m))
-(transpose m)
+(assert-equals '((1 4 6) (2 5 7) (3 6 8) (4 6 9)) (transpose m))
   
+; matrix-*-matrix
 (define (matrix-*-matrix m n)
   (let ((cols (transpose n)))
     (map (lambda (v)
@@ -41,4 +47,5 @@
 
 (define n '((1 2 3) (4 5 6) (7 8 9) (10 11 12)))
 
-(matrix-*-matrix m n)
+(assert-equals '((14 32 50 68) (32 77 122 167) (44 107 170 233)) 
+               (matrix-*-matrix m n))

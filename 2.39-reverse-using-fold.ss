@@ -1,3 +1,4 @@
+(load "common.ss")
 
 (define (fold-right op initial seq)
   (if (null? seq)
@@ -21,7 +22,7 @@
               '()
               seq))
 
-(reverse-fold-right '(1 2 3 4 5 7))
+(assert-equals '(7 5 4 3 2 1) (reverse-fold-right '(1 2 3 4 5 7)))
 
 (define (reverse-fold-left seq)
   (fold-left (lambda (result cur) 
@@ -29,4 +30,4 @@
               '()
               seq))
 
-(reverse-fold-left '(1 2 3 4 5 7))
+(assert-equals '(7 5 4 3 2 1) (reverse-fold-left '(1 2 3 4 5 7)))
