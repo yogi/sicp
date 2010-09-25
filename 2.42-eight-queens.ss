@@ -60,9 +60,8 @@
 (define (adjoin-position new-row cur-col rest-of-queens)
   (cons new-row rest-of-queens))
 
-;(adjoin-position (initial-guess 4) 4)
-
-(assert-equals '((3 1 4 2) (2 4 1 3)) (queens 4))
+(assert-equals '((3 1 4 2) (2 4 1 3)) 
+               (queens 4))
 
 (assert-equals '((4 2 5 3 1) (3 5 2 4 1) (5 3 1 4 2) (4 1 3 5 2) (5 2 4 1 3) (1 4 2 5 3) (2 5 3 1 4) (1 3 5 2 4) (3 1 4 2 5) (2 4 1 3 5)) 
                (queens 5))
@@ -70,6 +69,8 @@
 (assert-equals '((5 3 1 6 4 2) (4 1 5 2 6 3) (3 6 2 5 1 4) (2 4 6 1 3 5))
                (queens 6))
 
-(assert-equals 40 (length (queens 7)))
+(assert-equals 40 
+               (length (queens 7)))
 
-(assert-equals 92 (length (queens 8)))
+(assert-equals 92 
+               (length (queens 8)))
