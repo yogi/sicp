@@ -96,11 +96,7 @@
         (else exp)))
 
 
-(parenthesize '(x * 3 + (x + 2)))
-(parenthesize '((x * 3) + (x + 2)))
-
 (assert-equals '((x * 3) + (x + 2)) (parenthesize '(x * 3 + (x + 2))))
-(assert-equals 4 (deriv '((x * 3) + (x + 2)) 'x))
-(assert-equals 4 (deriv '((x + 3) * (x + 2)) 'x))
-(assert-equals 4 (deriv '(x * 3 + (x + 2)) 'x))
+(assert-equals '((x * 3) + (x + 2)) (parenthesize '((x * 3) + (x + 2))))
+(assert-equals '(x + (3 * (x + 2))) (parenthesize '(x + 3 * (x + 2))))
 
