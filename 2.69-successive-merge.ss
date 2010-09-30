@@ -81,7 +81,6 @@
 ; implementation
 (define (generate-huffman-tree pairs)
   (define (merge leafs)
-    (display leafs)(newline)
     (let ((merged (make-code-tree (car leafs) (cadr leafs))))
       (if (null? (cddr leafs))
           (list merged)
@@ -99,18 +98,6 @@
                    (make-leaf 'B 2)
                    (make-code-tree (make-leaf 'C 1)
                                    (make-leaf 'D 1)))))
-sample-tree
-(newline)
 (generate-huffman-tree '((B 1) (A 2)))
-(newline)
 (generate-huffman-tree '((C 1) (B 2) (A 3)))
-
-(generate-huffman-tree
-    '((a 8 )
-      (b 3)
-      (c 1)
-      (d 1)
-      (e 1)
-      (f 1)
-      (g 1)
-      (h 1)))
+(generate-huffman-tree '((a 8) (b 3) (c 1) (d 1) (e 1) (f 1) (g 1) (h 1)))
